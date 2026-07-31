@@ -10550,7 +10550,18 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 document.getElementById('installBtn').addEventListener('click', async () => {
   if (!deferredPrompt) {
-    alert('请使用浏览器菜单的"添加到主屏幕"功能来安装');
+    // 没有触发 beforeinstallprompt（iOS Safari 或其他不支持的情况）
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    let tip = '';
+    if (isIOS) {
+      tip = '安装方法：\n1. 点击 Safari 底部的「分享」按钮（方框+向上箭头）\n2. 选择「添加到主屏幕」\n3. 点击「添加」即可';
+    } else if (isAndroid) {
+      tip = '安装方法：\n1. 点击 Chrome 右上角「三个点」菜单\n2. 选择「添加到主屏幕」或「安装应用」\n3. 点击「添加」即可';
+    } else {
+      tip = '请使用浏览器菜单的「添加到主屏幕」功能来安装';
+    }
+    alert(tip);
     return;
   }
   deferredPrompt.prompt();
