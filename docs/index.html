@@ -10537,16 +10537,19 @@ if ('serviceWorker' in navigator) {
 // ==================== PWA: Install Prompt ====================
 let deferredPrompt = null;
 
+// 先尝试监听 beforeinstallprompt 事件
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  // Show install banner after 3 seconds if not previously dismissed
-  if (!Store.get('installDismissed')) {
-    setTimeout(() => {
-      document.getElementById('installBanner').classList.add('show');
-    }, 3000);
-  }
 });
+
+// 页面加载后5秒直接显示安装横幅（不依赖 beforeinstallprompt 事件）
+setTimeout(() => {
+  const banner = document.getElementById('installBanner');
+  if (banner && !Store.get('installDismissed')) {
+    banner.classList.add('show');
+  }
+}, 5000);
 
 document.getElementById('installBtn').addEventListener('click', async () => {
   if (!deferredPrompt) {
