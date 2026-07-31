@@ -1,0 +1,29 @@
+# 依赖
+node_modules/
+
+# 环境变量（含API密钥，绝对不能上传！）
+.env
+.env.local
+
+# 同步数据
+.sync-data/
+
+# Android 构建
+android/app/build/
+android/.gradle/
+android/local.properties
+
+# 临时文件
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# 编辑器
+.vscode/
+.idea/
+
+# 构建产物
+dist/
+build/
+*.apk

@@ -1,0 +1,18 @@
+# Render 部署配置文件
+# 文档: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: maxine-creator-dashboard
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0
+      # 以下密钥需要在 Render 后台手动填写，不要写在这里！
+      # - key: DASHSCOPE_API_KEY
+      #   sync: false
+      # - key: OPENAI_BASE_URL
+      #   value: https://dashscope.aliyuncs.com/compatible-mode/v1

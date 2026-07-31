@@ -1,0 +1,76 @@
+{
+  "name": "Maxine的工作台 - Creator Hub",
+  "short_name": "Maxine工作台",
+  "description": "自媒体创作、灵感管理、目标计划与学习知识库的集成工作台",
+  "start_url": "./creator-dashboard.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#0EA5E9",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "categories": ["productivity", "education", "lifestyle"],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icon-512.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "创作中心",
+      "short_name": "创作",
+      "description": "短视频创作中心",
+      "url": "./creator-dashboard.html#creation",
+      "icons": [{ "src": "./icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "每日反思",
+      "short_name": "反思",
+      "description": "记录每日反思与AI对话",
+      "url": "./creator-dashboard.html#reflection",
+      "icons": [{ "src": "./icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "灵感收集",
+      "short_name": "灵感",
+      "description": "灵感闪记与收集",
+      "url": "./creator-dashboard.html#inspiration",
+      "icons": [{ "src": "./icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

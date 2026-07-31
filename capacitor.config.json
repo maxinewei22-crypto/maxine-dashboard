@@ -1,0 +1,16 @@
+{
+  "appId": "com.maxine.creatorhub",
+  "appName": "Maxine工作台",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": true,
+    "backgroundColor": "#ffffff"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1000,
+      "backgroundColor": "#ffffff",
+      "showSpinner": false
+    }
+  }
+}
