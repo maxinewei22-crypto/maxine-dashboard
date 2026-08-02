@@ -3746,6 +3746,61 @@
     }
   }
 
+  /* ==================== Mobile Full Adaptation (≤768px) ==================== */
+  @media (max-width: 768px) {
+    /* 防止任何元素溢出导致横向滚动 */
+    *, *::before, *::after {
+      max-width: 100%;
+    }
+    html, body {
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    .app-container {
+      width: 100vw;
+      max-width: 100%;
+    }
+    /* 所有表格可横向滚动 */
+    table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+    }
+    /* 防止图片/视频溢出 */
+    img, video, canvas, svg, iframe {
+      max-width: 100%;
+      height: auto;
+    }
+    /* 预格式化文本可滚动 */
+    pre, code {
+      white-space: pre-wrap;
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+    /* 输入框/文本域自适应 */
+    input, textarea, select {
+      max-width: 100%;
+    }
+    /* 弹性换行 */
+    .module-header, .diagnosis-input-area, .diagnosis-suggestion-row,
+    .pros-cons-grid, .analyze-dimension, .inspiration-card-tags {
+      flex-wrap: wrap;
+    }
+    /* 确保最小字号不低于 12px */
+    .metric-label, .ocr-hint, .inspiration-tag, .nav-item span,
+    .calendar-day, .learning-tab, .install-banner-text {
+      font-size: 12px !important;
+    }
+    /* 底部导航在手机上显示 */
+    .bottom-nav { display: flex !important; }
+    /* 主内容区底部留出导航栏空间 */
+    .main-wrapper {
+      padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important;
+    }
+  }
+
   @media (max-width: 380px) {
     .metrics-row {
       grid-template-columns: 1fr;
