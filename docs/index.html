@@ -8971,13 +8971,15 @@ const hotVideoPool = [
 // ========== 视频链接分析（升级版本） ==========
 
 const API_SERVER_DEFAULT = 'http://localhost:3000';
+// GitHub Pages 模式下默认使用 Cloudflare Tunnel 地址（电脑开机时AI功能可用）
+const TUNNEL_URL = 'https://rat-pittsburgh-pmid-democratic.trycloudflare.com';
 
 function getApiServer() {
   const saved = Store.get('apiServerUrl');
   if (saved) return saved;
-  // 非 localhost 环境下使用相对路径（前后端同域部署）
+  // 非 localhost 环境下（GitHub Pages）自动使用 Tunnel 地址
   if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-    return '';
+    return TUNNEL_URL;
   }
   return API_SERVER_DEFAULT;
 }
@@ -10654,7 +10656,8 @@ const API_BASE = (function() {
   const saved = Store.get('apiServerUrl');
   if (saved) return saved;
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return 'http://localhost:3000';
-  return ''; // GitHub Pages 模式，无后端时降级
+  // GitHub Pages 模式自动使用 Tunnel 地址
+  return TUNNEL_URL;
 })();
 let reflectionData = { reflections: [], user_profile: {} };
 let reflectionVoiceRec = null;
